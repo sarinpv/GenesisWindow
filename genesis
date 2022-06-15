@@ -1,0 +1,76 @@
+window._genesys = {
+    "widgets": {
+      "webchat": {
+        "transport": {
+          "type": "purecloud-v2-sockets",
+          "dataURL": "https://api.mypurecloud.com",
+          "deploymentKey": "537cf1b0-c609-4b98-b95d-fdaac009b24a",
+          "orgGuid": "6ab81088-1a49-4d82-8602-7367fe1adc59",
+          "interactionData": {
+            "routing": {
+              "targetType": "QUEUE",
+              "targetAddress": "TEWH Commercial Chat",
+              "priority": 2
+            }
+          }
+        }
+       }
+     }
+  };
+
+  function getAdvancedConfig() {
+    return {
+      "form": {
+        "autoSubmit": false,
+        "firstName": "",
+        "phoneNumber": "",
+        "email": "",
+		"accountNumber": "",
+        "subject": ""
+      },
+      "formJSON": {
+        "wrapper": "<table></table>",
+        "inputs": [
+          {
+            "id": "cx_webchat_form_fullname",
+            "name": "firstName",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "Full Name",
+            
+          },
+		  {
+            "id": "cx_webchat_form_email",
+            "name": "email",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "Email"
+          },
+          {
+            "id": "cx_webchat_form_phoneNumber",
+            "name": "phoneNumber",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "Phone Number"
+          },
+		  {
+            "id": "cx_webchat_form_accountnumber",
+            "name": "accountNumber",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Account Number",
+            
+          },
+          {
+            "id": "cx_webchat_form_subject",
+            "name": "subject",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Subject"
+          }
+        ]
+      }
+    };
+  }
+
+  const customPlugin = CXBus.registerPlugin('Custom');
